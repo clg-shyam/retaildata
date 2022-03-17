@@ -1,0 +1,17 @@
+import os
+import json
+
+!pip install kaggle --quiet
+!mkdir ~/.kaggle
+!touch ~/.kaggle/kaggle.json
+
+
+api_token = {"username":"shyamcb97","key":"84a1284bd84faf1381d9a0d68ea8990f"}
+!ls /root/.kaggle/
+with open('/root/.kaggle/kaggle.json', 'w') as file:
+    json.dump(api_token, file)
+!chmod 600 ~/.kaggle/kaggle.json
+
+import kaggle
+os.system('kaggle datasets download -d berkayalan/retail-sales-data')
+os.system('unzip -d ./retail-sales-data ./retail-sales-data.zip')
